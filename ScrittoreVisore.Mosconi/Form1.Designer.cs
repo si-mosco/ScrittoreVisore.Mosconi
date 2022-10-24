@@ -44,6 +44,7 @@
             // 
             // richTextBox2
             // 
+            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox2.Location = new System.Drawing.Point(389, 55);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(399, 383);
@@ -78,6 +79,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(204, 30);
             this.textBox1.TabIndex = 4;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // comboBox1
             // 
@@ -103,7 +105,7 @@
             "Giallo",
             "Verde",
             "Azzurro",
-            "BLu",
+            "Blu",
             "Viola",
             "Rosa"});
             this.comboBox2.Location = new System.Drawing.Point(103, 222);
@@ -168,6 +170,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Aggiungi";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
