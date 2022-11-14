@@ -12,8 +12,8 @@ namespace ScrittoreVisore.Mosconi
 {
     public partial class Form1 : Form
     {
-        private Visualizzatore vis;
-        private Scrittore scr;
+        public Visualizzatore vis;
+        public Scrittore scr;
         public Form1()
         {
             InitializeComponent();
@@ -21,10 +21,11 @@ namespace ScrittoreVisore.Mosconi
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            scr = new Scrittore(vis);
-
-            richTextBox2.ReadOnly=true;
+            richTextBox2.ReadOnly = true;
             comboBox1.DropDownStyle = comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            vis = new Visualizzatore(richTextBox2);
+            scr = new Scrittore(vis);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -41,45 +42,37 @@ namespace ScrittoreVisore.Mosconi
         {
             if (textBox1.Text != "" && textBox2.Text != "" && comboBox1.Text != "" && comboBox2.Text != "")
             {
-                scr.Nome = textBox1.Text;
+                scr.Utente = textBox1.Text;
 
-                scr.Testo = textBox2.Text;
+                //stile
+                if (comboBox1.Text == "Grassetto")
+                    vis.Grassetto=true;
+                else if (comboBox1.Text == "Corsivo")
+                    vis.Corsivo = true;
+                else if (comboBox1.Text == "Sottolineato")
+                    vis.Sottolineato = true;
 
-                FontStyle f;
-                Font font = richTextBox2.SelectionFont;
-                if (font != null)
-                {
-                    f = font.Style;
-                    if (comboBox1.Text == "Grassetto")
-                        f ^= FontStyle.Bold;
-                    else if (comboBox1.Text == "Corsivo")
-                        f ^= FontStyle.Italic;
-                    else if (comboBox1.Text == "Sottolineato")
-                        f ^= FontStyle.Underline;
+                //colori
+                if (comboBox2.Text == "Nero")
+                    vis.Colore = Color.Black;
+                else if (comboBox2.Text == "Rosso")
+                    vis.Colore = Color.Red;
+                else if (comboBox2.Text == "Arancione")
+                    vis.Colore = Color.Orange;
+                else if (comboBox2.Text == "Giallo")
+                    vis.Colore = Color.Yellow;
+                else if (comboBox2.Text == "Verde")
+                    vis.Colore = Color.Green;
+                else if (comboBox2.Text == "Azzurro")
+                    vis.Colore = Color.Cyan;
+                else if (comboBox2.Text == "Blu")
+                    vis.Colore = Color.Blue;
+                else if (comboBox2.Text == "Viola")
+                    vis.Colore = Color.Purple;
+                else if (comboBox2.Text == "Rosa")
+                    vis.Colore = Color.Pink;
 
-                    richTextBox2.SelectionFont = new Font(font, f);
-
-                    if (comboBox2.Text == "Nero")
-                        richTextBox2.SelectionColor = Color.Black;
-                    else if (comboBox2.Text == "Rosso")
-                        richTextBox2.SelectionColor = Color.Red;
-                    else if (comboBox2.Text == "Arancione")
-                        richTextBox2.SelectionColor = Color.Orange;
-                    else if (comboBox2.Text == "Giallo")
-                        richTextBox2.SelectionColor = Color.Yellow;
-                    else if (comboBox2.Text == "Verde")
-                        richTextBox2.SelectionColor = Color.Green;
-                    else if (comboBox2.Text == "Azzurro")
-                        richTextBox2.SelectionColor = Color.Cyan;
-                    else if (comboBox2.Text == "Blu")
-                        richTextBox2.SelectionColor = Color.Blue;
-                    else if (comboBox2.Text == "Viola")
-                        richTextBox2.SelectionColor = Color.Purple;
-                    else if (comboBox2.Text == "Rosa")
-                        richTextBox2.SelectionColor = Color.Pink;
-
-                    richTextBox2.AppendText(scr.Nome + ": " + scr.Testo + "\n");
-                }
+                scr.aggiungiTesto(textBox2.Text);
 
                 textBox1.Text = "";
                 textBox2.Text = "";
@@ -88,6 +81,11 @@ namespace ScrittoreVisore.Mosconi
             }
             else
                 MessageBox.Show("Inserire tutti i Valori");
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

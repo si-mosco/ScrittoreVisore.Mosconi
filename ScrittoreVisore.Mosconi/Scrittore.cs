@@ -9,10 +9,7 @@ namespace ScrittoreVisore.Mosconi
     public class Scrittore
     {
         //attributi
-        private string nome;
-        private int stile;
-        private string colore;
-        private string testo;
+        private string utente;
         private Visualizzatore visualizzatore;
 
         //costruttori
@@ -22,55 +19,16 @@ namespace ScrittoreVisore.Mosconi
         }
 
         //metodi
-        public string Nome
+        public string Utente
         {
             set 
             {
-                nome = value;
+                utente = value;
             }
 
             get
             {
-                return nome;
-            }
-        }
-
-        public int Stile
-        {
-            set
-            {
-                stile = value;
-            }
-
-            get
-            {
-                return stile;
-            }
-        }
-
-        public string Colore
-        {
-            set
-            {
-                colore = value;
-            }
-
-            get
-            {
-                return colore;
-            }
-        }
-
-        public string Testo
-        {
-            set
-            {
-                testo = value;
-            }
-
-            get
-            {
-                return testo;
+                return utente;
             }
         }
 
@@ -85,6 +43,11 @@ namespace ScrittoreVisore.Mosconi
             {
                 return visualizzatore0;
             }
+        }
+
+        public void aggiungiTesto(string testo)
+        {
+            visualizzatore.visualizza(testo, Utente);
         }
     }
 }
