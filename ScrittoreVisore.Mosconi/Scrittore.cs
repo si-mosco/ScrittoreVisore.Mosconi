@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace ScrittoreVisore.Mosconi
 {
@@ -48,6 +49,24 @@ namespace ScrittoreVisore.Mosconi
         public void aggiungiTesto(string testo)
         {
             visualizzatore.visualizza(testo, Utente);
+        }
+
+        public void setGrassetto(bool turn)
+        {
+            visualizzatore.Grassetto=turn;
+        }
+
+        public void setCorsivo(bool turn)
+        {
+            visualizzatore.Corsivo = turn;
+        }
+        public void setSottolineato(bool turn)
+        {
+            visualizzatore.Sottolineato = turn;
+        }
+        public void setColore(Color turn)
+        {
+            visualizzatore.Colore = turn;
         }
     }
 }

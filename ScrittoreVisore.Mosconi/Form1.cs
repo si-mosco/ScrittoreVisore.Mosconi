@@ -46,31 +46,31 @@ namespace ScrittoreVisore.Mosconi
 
                 //stile
                 if (comboBox1.Text == "Grassetto")
-                    vis.Grassetto=true;
+                    scr.setGrassetto(true);
                 else if (comboBox1.Text == "Corsivo")
-                    vis.Corsivo = true;
+                    scr.setCorsivo(true);
                 else if (comboBox1.Text == "Sottolineato")
-                    vis.Sottolineato = true;
+                    scr.setSottolineato(true);
 
                 //colori
                 if (comboBox2.Text == "Nero")
-                    vis.Colore = Color.Black;
+                    scr.setColore(Color.Black);
                 else if (comboBox2.Text == "Rosso")
-                    vis.Colore = Color.Red;
+                    scr.setColore(Color.Red);
                 else if (comboBox2.Text == "Arancione")
-                    vis.Colore = Color.Orange;
+                    scr.setColore(Color.Orange);
                 else if (comboBox2.Text == "Giallo")
-                    vis.Colore = Color.Yellow;
+                    scr.setColore(Color.Yellow);
                 else if (comboBox2.Text == "Verde")
-                    vis.Colore = Color.Green;
+                    scr.setColore(Color.Green);
                 else if (comboBox2.Text == "Azzurro")
-                    vis.Colore = Color.Cyan;
+                    scr.setColore(Color.Cyan);
                 else if (comboBox2.Text == "Blu")
-                    vis.Colore = Color.Blue;
+                    scr.setColore(Color.Blue);
                 else if (comboBox2.Text == "Viola")
-                    vis.Colore = Color.Purple;
+                    scr.setColore(Color.Purple);
                 else if (comboBox2.Text == "Rosa")
-                    vis.Colore = Color.Pink;
+                    scr.setColore(Color.Pink);
 
                 scr.aggiungiTesto(textBox2.Text);
 
